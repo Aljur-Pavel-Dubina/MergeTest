@@ -9,6 +9,21 @@ File contetnt
                         <TextBlock Text="No signed contracts were found." FontSize="16" Foreground="Gray"/>
                     </Grid>
                     <Grid Visibility="{Binding Path=MyContract.MyFormResponse, Converter={StaticResource CollapsedIfNullConverter}}">
+                       
+                        <Button Grid.Row="0" HorizontalAlignment="Right" Content="Print Contract" Click="print_Click"/>
+                        <Border Grid.Row="1" Name="contractContainer" Background="White" />
+                    </Grid>
+                    
+                </Grid>
+
+
+                <Border>
+                    <Border Visibility="{Binding Path=MyContract.MyFormResponse, Converter={StaticResource CollapsedIfNotNullConverter}}" 
+                          VerticalAlignment="Center" 
+                          HorizontalAlignment="Center">
+                        <TextBlock Text="No signed contracts were found." FontSize="16" Foreground="Gray"/>
+                    </Border>
+                    <Grid Visibility="{Binding Path=MyContract.MyFormResponse, Converter={StaticResource CollapsedIfNullConverter}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
@@ -17,6 +32,6 @@ File contetnt
                         <Border Grid.Row="1" Name="contractContainer" Background="White" />
                     </Grid>
                     
-                </Grid>
+                </Border>
 
 Eng of file/
