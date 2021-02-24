@@ -2,19 +2,6 @@ Some information in xaml file.
 
 File contetnt
 
-<Grid>
-                    <Grid Visibility="{Binding Path=MyContract.MyFormResponse, Converter={StaticResource CollapsedIfNotNullConverter}}" 
-                          HorizontalAlignment="Center">
-                        <TextBlock Text="No signed contracts were found." FontSize="16" Foreground="Gray"/>
-                    </Grid>
-                    <Grid Visibility="{Binding Path=MyContract.MyFormResponse, Converter={StaticResource CollapsedIfNullConverter}}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Button Grid.Row="0" HorizontalAlignment="Right" Content="Print Contract" Click="print_Click"/>
-                    </Grid>
-                    
-                </Grid>
+balalaika
 
 Eng of file/
