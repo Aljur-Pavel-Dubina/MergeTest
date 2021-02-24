@@ -1,0 +1,62 @@
+  <DataTemplate x:Key="FeedbackItemTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/10star.png" Visibility="{Binding Path=Is1Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/15star.png" Visibility="{Binding Path=Is15Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/20star.png" Visibility="{Binding Path=Is2Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/25star.png" Visibility="{Binding Path=Is25Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/30star.png" Visibility="{Binding Path=Is3Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/35star.png" Visibility="{Binding Path=Is35Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/40star.png" Visibility="{Binding Path=Is4Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/45star.png" Visibility="{Binding Path=Is45Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+                        <Image Grid.Column="0" Source="/Presentation/Assets/Images/50star.png" Visibility="{Binding Path=Is5Star, Converter={StaticResource CollapsedIfFalseConverter}}" Margin="3"/>
+
+                        <TextBlock Grid.Column="1" Text="{Binding TimestampLocal, Converter={StaticResource MediumDateConverter}}" VerticalAlignment="Center" Margin="3" Foreground="Gray"/>
+
+                        <TextBlock Grid.Column="2" Text="{Trans modules.salonModule.views.employeeForm.by}" VerticalAlignment="Center" Margin="10,3,0,3"/>
+
+                        <TextBlock Grid.Column="3" Text="{Trans modules.salonModule.views.employeeForm.anonymous}" VerticalAlignment="Center" Margin="3" Visibility="{Binding Path=MyClient, Converter={StaticResource CollapsedIfNotNullConverter}}"/>
+                        <Button Grid.Column="3" Content="{Binding Path=MyClient.FullName}" Style="{StaticResource LinkButtonStyle}" VerticalAlignment="Center" Margin="3"
+                                Tag="{Binding Path=MyClient}" Click="clientLink_Click" Padding="0"
+                                Visibility="{Binding Path=MyClient, Converter={StaticResource CollapsedIfNullConverter}}"/>
+                    </Grid>
+                    
+                    <TextBlock Grid.Row="1" Text="{Binding Path=PositiveContent}" Margin="5" TextWrapping="Wrap"/>
+                    <TextBlock Grid.Row="2" Text="{Binding Path=NegativeContent}" Margin="5" TextWrapping="Wrap"/>
+
+                    <TextBlock Grid.Row="3" Text="{Trans modules.salonModule.views.employeeForm.serviceReceived}" FontWeight="Bold" Margin="5,5,5,0"/>
+                    
+                    <ItemsControl Grid.Row="4" ItemsSource="{Binding Path=MyFeedbackServices}" Margin="5,0,5,0">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=MyService.Description}" Margin="3"/>
+                                    <TextBlock Margin="3" Foreground="Gray">
+                                        <TextBlock.Text>
+                                            <Trans Key="modules.salonModule.views.employeeForm.with">
+                                                <Parameter Key="name" Binding="{Binding Path=MyEmployee.FullName}"/>
+                                            </Trans>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    
+                    <Border Grid.Row="5" BorderThickness="1" BorderBrush="Gray" Margin="5" Height="1"/>
+                </Grid>
+            </DataTemplate>
