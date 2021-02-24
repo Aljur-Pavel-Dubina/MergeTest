@@ -4,7 +4,6 @@ File contetnt
 
 <Grid>
                     <Grid Visibility="{Binding Path=MyContract.MyFormResponse, Converter={StaticResource CollapsedIfNotNullConverter}}" 
-                          VerticalAlignment="Center" 
                           HorizontalAlignment="Center">
                         <TextBlock Text="No signed contracts were found." FontSize="16" Foreground="Gray"/>
                     </Grid>
@@ -14,7 +13,6 @@ File contetnt
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Button Grid.Row="0" HorizontalAlignment="Right" Content="Print Contract" Click="print_Click"/>
-                        <Border Grid.Row="1" Name="contractContainer" Background="White" />
                     </Grid>
                     
                 </Grid>
