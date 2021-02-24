@@ -40,7 +40,7 @@
 
                     <TextBlock Grid.Row="3" Text="{Trans modules.salonModule.views.employeeForm.serviceReceived}" FontWeight="Bold" Margin="5,5,5,0"/>
                     
-                    <ItemsControl Grid.Row="4" ItemsSource="{Binding Path=MyFeedbackServices}" Margin="5,0,5,0">
+                    <!-- <ItemsControl Grid.Row="4" ItemsSource="{Binding Path=MyFeedbackServices}" Margin="5,0,5,0">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -55,8 +55,12 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    
+                    </ItemsControl> -->
+                     <TextBlock.Text>
+                                            <Trans Key="modules.salonModule.views.employeeForm.with">
+                                                <Parameter Key="name" Binding="{Binding Path=MyEmployee.FullName}"/>
+                                            </Trans>
+                                        </TextBlock.Text>
                     <Border Grid.Row="5" BorderThickness="1" BorderBrush="Gray" Margin="5" Height="1"/>
                 </Grid>
             </DataTemplate>
